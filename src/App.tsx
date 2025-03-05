@@ -3,8 +3,10 @@ import Navbar2 from "./Components/Navbar2";
 function App() {
   return (
     <>
-      <Navbar1 />
-      <Navbar2/>
+      <div className="hidden lg:block ">
+        <Navbar1 />
+      </div>
+      <Navbar2 />
     </>
   );
 }
