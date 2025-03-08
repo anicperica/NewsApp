@@ -5,7 +5,7 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          napravi:"#BB1E1E",
+          customRed:"#BB1E1E",
 
         },
       },
