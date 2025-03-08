@@ -15,7 +15,10 @@ export default function Navbar2() {
           <span className="text-3xl font-extrabold">News</span>
         </h1>
         <div className="relative  md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="z-[51] fixed top-5 right-5"
+          >
             {menuOpen ? (
               <HamburgerMenuClosed width={24} />
             ) : (
@@ -68,7 +71,6 @@ export default function Navbar2() {
           Latest
         </button>
       </div>
-      
     </div>
   );
 }
