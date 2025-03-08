@@ -68,6 +68,7 @@ export default function Navbar2() {
           Latest
         </button>
       </div>
+      
     </div>
   );
 }
