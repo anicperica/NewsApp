@@ -4,25 +4,34 @@ interface ArticleProps {
   imageUrl: string;
   url: string;
   source: { name: string };
+  author?: string;
 }
 export default function ArticleCard({
   title,
-  description,
+  author,
   imageUrl,
   url,
-  source,
 }: ArticleProps) {
   const handleClick = () => {
     window.open(url, "_blank");
   };
-
   return (
-    <button onClick={handleClick}>
-      <div className="relative flex flex-col items-center p-4  bg-[#F4F5F8] w-full h-[260px]  ">
-        <img src={imageUrl} alt={title} className="w-full h-auto rounded-t-lg" />
-        <div className="absolute bottom-0 left-4 right-4 p-4 flex flex-col justify-center items-start bg-white h-[92px] rounded-b-lg">
-          <p className="text-[#1E71BB] font-bold">Technology</p>
-          <h2 className="text-start font-medium">{title}</h2>
+    <button onClick={handleClick} className="w-full  ">
+      <div className="relative flex flex-col w-full bg-[#F4F5F8] h-[260px]  rounded-lg overflow-hidden lg:h-[252px] lg-[321px]">
+        <img
+          src={imageUrl}
+          alt={title}
+          className="w-full h-[226px] object-cover lg:h-[212px]"
+        />
+
+        <div className="absolute flex flex-col justify-center bottom-0 w-full bg-white p-4 h-[92px]">
+          <p className="text-left text-[#1E71BB] uppercase font-bold text-[10px]">
+            Technology
+          </p>
+          <h2 className="font-medium text-sm text-left line-clamp-2">
+            {title}
+          </h2>
+          <p className="hidden lg:block text-gray-500 text-left">{author}</p>
         </div>
       </div>
     </button>

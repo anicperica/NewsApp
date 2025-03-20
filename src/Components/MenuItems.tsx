@@ -8,10 +8,10 @@ interface MenuItemProps{
 
 export default function MenuItems({ id, label, Icon, isActive, onClick, }: MenuItemProps) {
     return(
-        <button key={id} onClick={onClick} className={`flex flex-col items-center justify-center  p-[25px] h-[95px] w-[95px] ${isActive
+        <button key={id} onClick={onClick} className={`flex flex-col items-center justify-center rounded-lg  h-[95px] w-[95px] lg:h-[63px] lg:w-[63px] ${isActive
               ? "text-[#BB1E1E] bg-white " :"text-black bg-[#F4F5F8]" }`}>
-            <Icon  color={isActive ? "#BB1E1E" : "#8D8D8C"}/>
-            <p>{label}</p>
+            <Icon  color={isActive ? "#BB1E1E" : "#8D8D8C" }  />
+            <p className="text-[14px] lg:text-[10px]">{label}</p>
         </button>
     );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
-
+import LatestNewsList from "./LatestNewsList";
 interface Article {
   source: { id: string | null; name: string };
   author?: string;
@@ -30,7 +30,10 @@ export default function ArticleList() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1">
+    <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-4 px-4 w-full lg:px-0">
+      <div className="hidden lg:block lg:col-span-1 lg:row-span-3 lg:col-start-3">
+        <LatestNewsList/>
+      </div>
     {articles.map((article, index) => (
       <ArticleCard
         key={index}
@@ -39,8 +42,10 @@ export default function ArticleList() {
         imageUrl={article.urlToImage ?? "https://via.placeholder.com/150"}
         url={article.url}
         source={{ name: article.source?.name ?? "Unknown Source" }}
+        author={article.author}
       />
     ))}
+    
   </div>
   );
 }
