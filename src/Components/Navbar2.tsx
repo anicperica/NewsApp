@@ -4,9 +4,19 @@ import SearchIcon from "../assets/Icons/Search.svg";
 import HamburgerMenu from "./IconComponents/HamburgerMenu";
 
 import HamburgerMenuClosed from "./IconComponents/HamburgerMenuClosed";
-export default function Navbar2() {
+
+interface NavbarProps {
+  onTabChange: (tab: string) => void;
+}
+
+export default function Navbar2({ onTabChange }: NavbarProps) {
   const [active, setActive] = useState<string>("featured");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const handleTabClick = (tab: string) => {
+    setActive(tab);
+    onTabChange(tab);
+  };
+
   return (
     <div className="flex flex-col items-between w-full justify-center gap-[20px] px-[20px] bg-[#F4F5F8] h-[210px]  lg:px-[170px] lg:justify-start md:h-[113px] md:px-[150px]  md:flex-row md:items-center md:gap-[43px] md:w-full  ">
       <div className="flex items-center justify-between ">
@@ -56,7 +66,7 @@ export default function Navbar2() {
               ? "text-[#BB1E1E] bg-[#BB1E1E1A] "
               : "text-[#1D1D1B]"
           }`}
-          onClick={() => setActive("featured")}
+          onClick={() => handleTabClick("featured")}
         >
           Featured
         </button>
@@ -66,7 +76,7 @@ export default function Navbar2() {
               ? "text-[#BB1E1E] bg-[#BB1E1E1A] "
               : "text-[#1D1D1B]"
           }`}
-          onClick={() => setActive("latest")}
+          onClick={() => handleTabClick("latest")}
         >
           Latest
         </button>

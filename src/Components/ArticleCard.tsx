@@ -17,7 +17,7 @@ export default function ArticleCard({
   };
   return (
     <button onClick={handleClick} className="w-full  ">
-      <div className="relative flex flex-col w-full bg-[#F4F5F8] h-[260px]  rounded-lg overflow-hidden lg:h-[252px] lg-[321px]">
+      <div className="relative flex flex-col w-full bg-[#F4F5F8] h-[260px]  rounded-lg overflow-hidden lg:h-[252px] ">
         <img
           src={imageUrl}
           alt={title}
