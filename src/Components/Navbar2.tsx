@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { useSearch } from "./context/SearchContext";
 import DropdownMenu from "./DropdownMenu";
 import SearchIcon from "../assets/Icons/Search.svg";
 import HamburgerMenu from "./IconComponents/HamburgerMenu";
-
 import HamburgerMenuClosed from "./IconComponents/HamburgerMenuClosed";
 
 interface NavbarProps {
@@ -11,6 +11,7 @@ interface NavbarProps {
 
 export default function Navbar2({ onTabChange }: NavbarProps) {
   const [active, setActive] = useState<string>("featured");
+  const { searchQuery, setSearchQuery } = useSearch();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const handleTabClick = (tab: string) => {
     setActive(tab);
@@ -27,12 +28,12 @@ export default function Navbar2({ onTabChange }: NavbarProps) {
         <div className="relative  md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="z-[51] fixed top-5 right-5"
+            className="z-[51] sticky top-5 right-5"
           >
             {menuOpen ? (
-              <HamburgerMenuClosed width={24} />
+              <HamburgerMenuClosed  width={24} />
             ) : (
-              <HamburgerMenu width={24} />
+              <HamburgerMenu  width={24} />
             )}
           </button>
           <DropdownMenu isOpen={menuOpen} />
@@ -51,6 +52,7 @@ export default function Navbar2({ onTabChange }: NavbarProps) {
             className="h-[50px] w-full rounded-lg py-[15px] pl-[50px] pr-[120px] bg-white focus:outline-none "
             type="text"
             placeholder="Search news"
+            onChange={(e)=>setSearchQuery(e.target.value)}
           />
 
           <button className="absolute right-2 text-white bg-[#BB1E1E] px-[14px] py-[8px] rounded-lg font-bold hover:bg-gray-800  hidden lg:block">

@@ -5,12 +5,14 @@ interface ArticleProps {
   url: string;
   source: { name: string };
   author?: string;
+  selectedCategory:string;
 }
 export default function ArticleCard({
   title,
   author,
   imageUrl,
   url,
+  selectedCategory
 }: ArticleProps) {
   const handleClick = () => {
     window.open(url, "_blank");
@@ -26,7 +28,7 @@ export default function ArticleCard({
 
         <div className="absolute flex flex-col justify-center bottom-0 w-full bg-white p-4 h-[92px]">
           <p className="text-left text-[#1E71BB] uppercase font-bold text-[10px]">
-            Technology
+            {selectedCategory}
           </p>
           <h2 className="font-medium text-sm text-left line-clamp-2">
             {title}

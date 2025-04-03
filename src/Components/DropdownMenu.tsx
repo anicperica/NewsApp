@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCategory } from "./context/CategoryContext";
 import { categories } from "./utils/categories";
 import SearchIcon from "../assets/Icons/Search.svg";
 import MenuItems from "./MenuItems";
@@ -8,7 +8,7 @@ interface DropdownMenuProps {
 }
 
 export default function DropdownMenu({ isOpen }: DropdownMenuProps) {
-  const [active, setActive] = useState<string>("home");
+  const { selectedCategory, setSelectedCategory } = useCategory();
 
   return (
     <div
@@ -41,8 +41,8 @@ export default function DropdownMenu({ isOpen }: DropdownMenuProps) {
                 id={id}
                 label={label}
                 Icon={Icon}
-                isActive={active === id}
-                onClick={() => setActive(id)}
+                isActive={selectedCategory === id}
+                onClick={() => setSelectedCategory(id)}
               />
             ))}
           </div>

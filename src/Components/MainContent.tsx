@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCategory } from "./context/CategoryContext";
 import { categories } from "../Components/utils/categories";
 import ArticleList from "./ArticleList";
 import MenuItems from "./MenuItems";
@@ -9,7 +9,7 @@ interface MainContentProps {
 }
 
 export default function MainContent({active}:MainContentProps) {
-  const [selected, setSelected] = useState<string>("home");
+  const { selectedCategory,setSelectedCategory } = useCategory();
 
   return (
     <div className="flex lg:px-[170px] bg-[#F4F5F8] lg:gap-[25px] w-full">
@@ -20,14 +20,14 @@ export default function MainContent({active}:MainContentProps) {
             id={category.id}
             label={category.label}
             Icon={category.Icon}
-            isActive={selected === category.id}
-            onClick={() => setSelected(category.id)}
+            isActive={selectedCategory === category.id}
+            onClick={() => setSelectedCategory(category.id)}
           />
         ))}
       </div>
       <div className="w-full lg:flex lg:flex-col lg:gap-4">
         <h1 className=" font-bold hidden lg:block">NEWS</h1>
-        {active==="featured" ?<ArticleList />: <LatestNewsList/>}
+        {active==="featured" ?<ArticleList  selectedCategory={selectedCategory}/>: <LatestNewsList/>}
       </div>
     </div>
   );
