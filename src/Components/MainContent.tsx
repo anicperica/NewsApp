@@ -1,5 +1,5 @@
-import { useCategory } from "./context/CategoryContext";
-import { categories } from "../Components/utils/categories";
+import { useCategory } from "../context/CategoryContext";
+import { categories } from "../utils/categories";
 import ArticleList from "./ArticleList";
 import MenuItems from "./MenuItems";
 import LatestNewsList from "./LatestNewsList";
@@ -12,7 +12,7 @@ export default function MainContent({active}:MainContentProps) {
   const { selectedCategory,setSelectedCategory } = useCategory();
 
   return (
-    <div className="flex lg:px-[170px] bg-[#F4F5F8] lg:gap-[25px] w-full">
+    <div className="flex items-start lg:px-[170px] bg-[#F4F5F8] lg:gap-[25px] w-full">
       <div className="hidden lg:flex lg:flex-col  ">
         {categories.map((category) => (
           <MenuItems

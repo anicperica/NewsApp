@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearch } from "./context/SearchContext";
+import { useSearch } from "../context/SearchContext";
 import ArticleCard from "./ArticleCard";
 import LatestNewsList from "./LatestNewsList";
 interface Article {
