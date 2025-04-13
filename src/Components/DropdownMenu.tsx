@@ -1,5 +1,5 @@
-import { useCategory } from "./context/CategoryContext";
-import { categories } from "./utils/categories";
+import { useCategory } from "../context/CategoryContext";
+import { categories } from "../utils/categories";
 import SearchIcon from "../assets/Icons/Search.svg";
 import MenuItems from "./MenuItems";
 

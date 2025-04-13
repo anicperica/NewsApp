@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSearch } from "./context/SearchContext";
+import { useSearch } from "../context/SearchContext";
 import DropdownMenu from "./DropdownMenu";
 import SearchIcon from "../assets/Icons/Search.svg";
 import HamburgerMenu from "./IconComponents/HamburgerMenu";
