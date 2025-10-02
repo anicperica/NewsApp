@@ -11,7 +11,7 @@ interface NavbarProps {
 
 export default function Navbar2({ onTabChange }: NavbarProps) {
   const [active, setActive] = useState<string>("featured");
-  const { searchQuery, setSearchQuery } = useSearch();
+  const {  setSearchQuery } = useSearch();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const handleTabClick = (tab: string) => {
     setActive(tab);
