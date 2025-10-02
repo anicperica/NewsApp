@@ -21,7 +21,7 @@ export default function ArticleCard({
     <button onClick={handleClick} className="w-full  ">
       <div className="relative flex flex-col w-full bg-[#F4F5F8] h-[260px]  rounded-lg overflow-hidden lg:h-[252px] ">
         <img
-          src={imageUrl}
+          src={imageUrl|| "https://via.placeholder.com/150"}
           alt={title}
           className="w-full h-[226px] object-cover lg:h-[212px]"
         />
