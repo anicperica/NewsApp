@@ -21,14 +21,10 @@ export default function ArticleList({ selectedCategory }: ArticleListProps) {
   const { searchQuery } = useSearch();
   useEffect(() => {
     const fetchArticles = async () => {
-      const url =
-        selectedCategory === "home"
-          ? `https://newsapi.org/v2/everything?q=news&sortBy=popularity&apiKey=cb7352685cc7491a948226d1cd8e4081`
-          : `https://newsapi.org/v2/top-headlines?category=${selectedCategory}&country=us&apiKey=cb7352685cc7491a948226d1cd8e4081`;
-
+    
       try {
-        const res = await fetch(url);
-        const data = await res.json();
+        const res = await fetch(`/api/news?category=${selectedCategory}`);
+        const data = await res.json();  
         console.log(data);
         setArticles(data.articles);
       } catch (error) {
