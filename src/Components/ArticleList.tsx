@@ -38,8 +38,8 @@ export default function ArticleList({ selectedCategory }: ArticleListProps) {
     fetchArticles();
   }, [selectedCategory]);
 
-  const filteredArticles = articles.filter((article) =>
-    article.title.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredArticles = (articles ?? []).filter((article) =>
+    article?.title?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
