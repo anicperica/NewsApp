@@ -22,8 +22,11 @@ export default function ArticleCard({
       <div className="relative flex flex-col w-full bg-[#F4F5F8] h-[260px]  rounded-lg overflow-hidden lg:h-[252px] ">
         <img
           src={imageUrl|| "https://via.placeholder.com/150"}
-          alt={title}
+          alt={title || "No title "}
           className="w-full h-[226px] object-cover lg:h-[212px]"
+          onError={(e) => {
+    (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/150";
+  }}
         />
 
         <div className="absolute flex flex-col justify-center bottom-0 w-full bg-white p-4 h-[92px]">
